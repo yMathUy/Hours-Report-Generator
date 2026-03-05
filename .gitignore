@@ -4,8 +4,12 @@
 *.csv
 *.xlsx
 *.xls
+*.xlsm
+*.xlsb
 New Template*.xlsx
 *Hours Report*.xlsx
+*template*.xlsx
+*export*.xlsx
 
 # Arquivos temporários
 *.tmp
