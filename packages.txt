@@ -1,3 +1,0 @@
-# Dependências do sistema para Streamlit Cloud
-# Adicione aqui pacotes do sistema se necessário
-# Exemplo: libxml2-dev, libxslt-dev, etc.
