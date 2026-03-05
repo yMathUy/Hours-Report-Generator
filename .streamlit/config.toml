@@ -3,8 +3,7 @@
 # If false, makes your Streamlit script start as a module.
 developmentMode = false
 
-# Allows you to type a variable or string by itself in a single line of Python code to write it to the app.
-dataFrameSerialization = "legacy"
+# DataFrame serialization now uses Apache Arrow by default (legacy option removed)
 
 [logger]
 
