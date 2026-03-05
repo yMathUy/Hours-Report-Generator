@@ -38,18 +38,3 @@ enableWebsocketCompression = false
 
 # The base path for the URL where Streamlit should be reachable from.
 baseUrlPath = ""
-
-# Enables support for Cross-Origin Request Sharing (CORS) protection, for added security.
-enableCORS = false
-
-# Enables support for Cross-Site Request Forgery (XSRF) protection, for added security.
-enableXsrfProtection = false
-
-# Max size, in megabytes, for files uploaded with the file_uploader.
-maxUploadSize = 200
-
-# Max size, in megabytes, of messages that can be sent via the WebSocket connection.
-maxMessageSize = 200
-
-# Enables support for websocket compression.
-enableWebsocketCompression = false
