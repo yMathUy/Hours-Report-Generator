@@ -2,53 +2,42 @@
 
 Uma aplicação Streamlit para gerar relatórios automáticos de horas trabalhadas com análise e exportação em Excel.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hours-report-generator.streamlit.app/)
+
 ## 🎯 Funcionalidades
 
-✅ **Upload de arquivos** - Suporta Excel e CSV  
-✅ **Análise automática** - Calcula total de horas, média diária e distribuição por projeto  
-✅ **Visualizações** - Gráficos interativos com Plotly  
-✅ **Exportação** - Gera relatório em Excel com múltiplas abas  
-✅ **Filtros** - Filtre dados por projeto e período  
+✅ **Upload de arquivos** - Suporta Excel e CSV, incluindo exports do ClickUp
+✅ **Análise automática** - Calcula total de horas, média diária e distribuição por projeto
+✅ **Visualizações** - Gráficos interativos com Plotly
+✅ **Exportação** - Gera relatório em Excel simples ou mantém estrutura completa do template
+✅ **Template Management** - Salva templates e mantém histórico de dados
+✅ **Filtros** - Filtre dados por projeto e período
 
-## 📋 Formato de Entrada
+## 📋 Formatos suportados
 
-O arquivo deve conter as seguintes colunas:
+### ClickUp Export
+- Coluna "Time Tracked Text" (ex: '2 h 30 m')
+- Coluna "Start Text" (data/hora)
+- Coluna "Task Name" (nome da task)
 
-| Coluna | Descrição | Exemplo |
-|--------|-----------|---------|
-| **Data** | Data do trabalho | 01/01/2024 |
-| **Horas** | Horas trabalhadas | 8.5 |
-| **Projeto** | Nome do projeto/categoria | Projeto A |
-
-### Exemplo de arquivo (CSV ou Excel)
-```
-Data,Horas,Projeto
-01/01/2024,8,Projeto A
-02/01/2024,7.5,Projeto B
-03/01/2024,8,Projeto A
-04/01/2024,6,Projeto C
-```
+### Formato customizado
+- **Data**: DD/MM/YYYY
+- **Horas**: 8.5 (decimal)
+- **Task**: Nome da task
 
 ## 🚀 Como usar
 
-### 1. Instalar dependências
+### Localmente
 ```bash
 pip install -r requirements.txt
-```
-
-### 2. Executar a aplicação
-```bash
 streamlit run streamlit_app.py
 ```
 
-### 3. Usar a aplicação
-1. Abra a aplicação em seu navegador (geralmente em `http://localhost:8501`)
-2. Carregue seu arquivo Excel ou CSV na barra lateral
-3. Visualize os dados nas diferentes abas:
-   - **📊 Resumo**: Métricas principais e distribuição por projeto
-   - **📈 Gráficos**: Visualizações interativas
-   - **📋 Detalhes**: Lista completa de registros com filtros
-   - **💾 Exportar**: Baixe o relatório em Excel
+### Streamlit Cloud
+1. Fork este repositório
+2. Acesse [share.streamlit.io](https://share.streamlit.io)
+3. Conecte seu GitHub e selecione este repositório
+4. Clique em "Deploy"
 
 ## 📊 Abas da Aplicação
 
@@ -56,8 +45,8 @@ streamlit run streamlit_app.py
 - Total de horas registradas
 - Total de dias trabalhados
 - Média de horas por dia
-- Número de projetos diferentes
-- Gráfico de distribuição por projeto
+- Número de tarefas diferentes
+- Gráfico de distribuição por tarefa
 
 ### Gráficos
 - Horas trabalhadas por dia (gráfico de barras)
@@ -65,20 +54,19 @@ streamlit run streamlit_app.py
 
 ### Detalhes
 - Lista completa de registros
-- Filtros por projeto e período de datas
+- Filtros por tarefa e período de datas
 
 ### Exportar
-- Gera arquivo Excel com:
-  - Aba "Resumo": Métricas principais
-  - Aba "Por Projeto": Análise por projeto
-  - Aba "Detalhes": Registros completos
+- **Exportar Simples**: Excel com 3 abas (Resumo, Por Tarefa, Detalhes)
+- **Exportar com Template**: Mantém estrutura completa do arquivo original
 
 ## 🛠️ Tecnologias
 
 - **Streamlit** - Interface web interativa
 - **Pandas** - Processamento de dados
 - **Plotly** - Gráficos interativos
-- **OpenPyXL** - Exportação para Excel
+- **OpenPyXL** - Suporte a Excel
+- **Python-dateutil** - Processamento de datas
 
 ## 📝 Dependências
 
@@ -91,12 +79,16 @@ streamlit run streamlit_app.py
 ## 🐛 Troubleshooting
 
 **Erro: "Colunas obrigatórias ausentes"**
-- Verifique se seu arquivo tem as colunas: Data, Horas e Projeto
-- Os nomes das colunas são case-insensitive (MAIÚSCULAS ou minúsculas)
+- Verifique se seu arquivo tem as colunas corretas
+- Para ClickUp: "Time Tracked Text", "Task Name", "Start Text"
 
-**Erro: "Nenhuma linha com dados válidos encontrada"**
-- Verifique se o formato das datas está correto (DD/MM/YYYY)
-- Verifique se os valores de horas são números válidos
+**Erro: "Template não encontrado"**
+- Faça upload de um arquivo template primeiro
+- O template será salvo automaticamente
+
+## 📄 Licença
+
+Desenvolvido por MathZerstrer | 2025 - All rights reserved
 
 ## 📄 Licença
 

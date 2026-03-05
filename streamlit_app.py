@@ -594,7 +594,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style='text-align: center; color: #888; font-size: 12px;'>
-        Desenvolvido com ❤️ usando Streamlit | 2024
+        Desenvolvido por MathZerstrer | 2025 - All rights reserved
     </div>
     """,
     unsafe_allow_html=True
