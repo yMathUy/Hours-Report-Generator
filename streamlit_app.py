@@ -96,7 +96,18 @@ if uploaded_file is not None:
         if uploaded_file.name.endswith('.csv'):
             df = pd.read_csv(uploaded_file)
         else:
-            df = pd.read_excel(uploaded_file)
+            # Tentar ler Excel com diferentes engines
+            try:
+                df = pd.read_excel(uploaded_file, engine='openpyxl')
+            except ImportError:
+                try:
+                    df = pd.read_excel(uploaded_file, engine='xlrd')
+                except ImportError:
+                    st.error("❌ Não foi possível ler o arquivo Excel. Instale openpyxl ou xlrd.")
+                    st.stop()
+            except Exception as e:
+                st.error(f"❌ Erro ao ler arquivo Excel: {str(e)}")
+                st.stop()
         
         # Se o arquivo é um template (contém as abas específicas), salvá-lo automaticamente
         if uploaded_file.name.endswith('.xlsx'):
