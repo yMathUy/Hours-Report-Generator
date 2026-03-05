@@ -1,5 +1,17 @@
 .streamlit/secrets.toml
 
+# Arquivos de dados específicos (não subir para GitHub)
+*.csv
+*.xlsx
+*.xls
+New Template*.xlsx
+*Hours Report*.xlsx
+
+# Arquivos temporários
+*.tmp
+*.temp
+inspect_template.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
